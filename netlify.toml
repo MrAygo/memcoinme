@@ -1,0 +1,22 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  functions = "netlify/functions"
+  publish = "dist"
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions" 
+
+[build.environment]
+  NODE_VERSION = "18"
+  SUPABASE_AUTH_EXTERNAL_GITHUB_ENABLED = "true"
+  SUPABASE_AUTH_EXTERNAL_GOOGLE_ENABLED = "true"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@supabase/supabase-js"]
